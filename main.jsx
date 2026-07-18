@@ -1,53 +1,197 @@
+import React, { useEffect, useState } from "react";
+import ReactDOM from "react-dom/client";
 
-import React,{useEffect,useState} from 'react';
-import ReactDOM from 'react-dom/client';
+function App() {
+  const targetDate = new Date("2026-08-23T09:00:00");
 
-function App(){
- const target=new Date('2026-08-23T09:00:00');
- const [time,setTime]=useState('');
- useEffect(()=>{
-  const i=setInterval(()=>{
-   const d=target-new Date();
-   const days=Math.floor(d/86400000);
-   const hrs=Math.floor((d%86400000)/3600000);
-   const min=Math.floor((d%3600000)/60000);
-   setTime(`${days} Hari ${hrs} Jam ${min} Menit`);
-  },1000);
-  return ()=>clearInterval(i);
- },[]);
+  const [countdown, setCountdown] = useState("");
 
- return <div style={{background:'#f7ecd0',padding:20,fontFamily:'serif'}}>
- <h1>Muhammad Solikhin & Vera Monica</h1>
- <h2>Undangan Pernikahan Jawa Keraton Emas</h2>
- <p>Countdown: {time}</p>
+  useEffect(() => {
+    const timer = setInterval(() => {
+      const now = new Date();
+      const diff = targetDate - now;
 
- <h3>Mempelai</h3>
- <p>Putra Bpk. Muhammad Sarjono & Ibu Sumaryanti</p>
- <p>Putri Bpk. Agus Sulistiyono & Ibu Siti Asmonah</p>
+      if (diff <= 0) {
+        setCountdown("Acara Sedang Berlangsung");
+        return;
+      }
 
- <h3>Acara</h3>
- <p>Akad: 23 Agustus 2026 - 09.00 WIB</p>
- <p>Resepsi: 23 Agustus 2026 - 10.00 WIB</p>
- <p>Dusun Gadingan, Banyubiru, Dukun, Magelang, Jawa Tengah</p>
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / (1000 * 60)) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
 
- <a href="https://share.google/zmUUfJnE69BI58B6D">Buka Maps</a>
+      setCountdown(
+        `${days} Hari ${hours} Jam ${minutes} Menit ${seconds} Detik`
+      );
+    }, 1000);
 
- <h3>Love Story</h3>
- <p>Ceritakan perjalanan cinta Anda di sini.</p>
+    return () => clearInterval(timer);
+  }, []);
 
- <h3>Galeri Prewedding</h3>
- <p>Tambahkan foto pada folder public dan tampilkan di sini.</p>
+  return (
+    <div
+      style={{
+        background: "#f8f1dd",
+        color: "#4b3416",
+        fontFamily: "Georgia, serif",
+        minHeight: "100vh",
+        padding: "20px",
+        textAlign: "center",
+      }}
+    >
+      <h3>The Wedding Of</h3>
 
- <h3>RSVP WhatsApp</h3>
- <a href="https://wa.me/6283113099072?text=Saya%20akan%20hadir">Konfirmasi Kehadiran</a>
+      <h1
+        style={{
+          color: "#b8860b",
+          fontSize: "38px",
+        }}
+      >
+        Muhammad Solikhin
+        <br />&
+        <br />
+        Vera Monica
+      </h1>
 
- <h3>Amplop Digital</h3>
- <p>Bank Mandiri</p>
- <p>181850004693666</p>
- <p>a.n Muhammad Solikhin</p>
+      <hr />
 
- <h3>Ucapan Tamu</h3>
- <textarea rows="5" cols="40" placeholder="Tulis ucapan..."></textarea>
- </div>
+      <h2>✨ Jawa Keraton Emas Premium ✨</h2>
+
+      <p>
+        Dengan memohon rahmat dan ridho Allah SWT,
+        kami mengundang Bapak/Ibu/Saudara/i
+        untuk menghadiri pernikahan kami.
+      </p>
+
+      <h2>⏳ Countdown Acara</h2>
+      <h3>{countdown}</h3>
+
+      <hr />
+
+      <h2>👑 Mempelai Pria</h2>
+      <p>
+        Muhammad Solikhin
+        <br />
+        Putra Bapak Muhammad Sarjono
+        <br />
+        dan Ibu Sumaryanti
+      </p>
+
+      <h2>👑 Mempelai Wanita</h2>
+      <p>
+        Vera Monica
+        <br />
+        Putri Bapak Agus Sulistiyono
+        <br />
+        dan Ibu Siti Asmonah
+      </p>
+
+      <hr />
+
+      <h2>📅 Akad Nikah</h2>
+      <p>23 Agustus 2026</p>
+      <p>09.00 WIB</p>
+
+      <h2>🎉 Resepsi</h2>
+      <p>23 Agustus 2026</p>
+      <p>10.00 WIB</p>
+
+      <hr />
+
+      <h2>📍 Lokasi Acara</h2>
+      <p>
+        Dusun Gadingan,
+        Banyubiru, Dukun,
+        Magelang, Jawa Tengah
+      </p>
+
+      <a
+        href="https://share.google/zmUUfJnE69BI58B6D"
+        target="_blank"
+      >
+        📍 Buka Google Maps
+      </a>
+
+      <hr />
+
+      <h2>❤️ Love Story</h2>
+      <p>
+        Ceritakan perjalanan cinta Anda
+        dari awal pertemuan hingga
+        menuju hari bahagia ini.
+      </p>
+
+      <hr />
+
+      <h2>📸 Galeri Prewedding</h2>
+
+      <img
+        src="https://via.placeholder.com/300x400"
+        alt="Prewedding"
+        style={{
+          width: "100%",
+          maxWidth: "300px",
+          borderRadius: "15px",
+        }}
+      />
+
+      <hr />
+
+      <h2>🎁 Amplop Digital</h2>
+
+      <p>
+        <b>Bank Mandiri</b>
+      </p>
+
+      <p>181850004693666</p>
+
+      <p>a.n Muhammad Solikhin</p>
+
+      <hr />
+
+      <h2>💌 RSVP Kehadiran</h2>
+
+      <a
+        href="https://wa.me/6283113099072?text=Assalamu'alaikum,%20Saya%20akan%20hadir%20di%20acara%20pernikahan%20Muhammad%20Solikhin%20dan%20Vera%20Monica"
+        target="_blank"
+      >
+        Konfirmasi via WhatsApp
+      </a>
+
+      <hr />
+
+      <h2>📝 Ucapan Tamu</h2>
+
+      <textarea
+        rows="5"
+        cols="40"
+        placeholder="Tulis ucapan dan doa terbaik..."
+      />
+
+      <br />
+      <br />
+
+      <button>Kirim Ucapan</button>
+
+      <hr />
+
+      <h2>🎵 Musik</h2>
+      <p>Kusuma Wijaya</p>
+
+      <br />
+
+      <p>
+        Terima kasih atas doa dan restunya.
+      </p>
+
+      <h3>
+        Muhammad Solikhin & Vera Monica
+      </h3>
+    </div>
+  );
 }
-ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
+
+ReactDOM.createRoot(
+  document.getElementById("root")
+).render(<App />);
