@@ -138,7 +138,7 @@ function App() {
 />
 
 <img
-  src="/solikhin-vera-2.jpg"
+  src="/fb4910f0-b474-446b-90fc-01834c50ac4d.jpg"
   alt="Foto 2"
   style={{
     width: "100%",
