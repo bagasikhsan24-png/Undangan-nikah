@@ -127,7 +127,7 @@ function App() {
       <h2>📸 Galeri Prewedding</h2>
 
 <img
-  src="/solikhin-vera-1.jpg"
+  src="/SAVE_20260719_043851.jpg"
   alt="Foto 1"
   style={{
     width: "100%",
