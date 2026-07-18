@@ -149,7 +149,7 @@ function App() {
 />
 
 <img
-  src="/solikhin-vera-3.jpg"
+  src="/public/SAVE_20260719_043844.jpg"
   alt="Foto 3"
   style={{
     width: "100%",
