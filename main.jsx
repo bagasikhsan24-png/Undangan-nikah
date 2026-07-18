@@ -126,9 +126,37 @@ function App() {
 
       <h2>📸 Galeri Prewedding</h2>
 
-      <img
-        src="https://via.placeholder.com/300x400"
-        alt="Prewedding"
+<img
+  src="/foto1.jpg"
+  alt="Foto 1"
+  style={{
+    width: "100%",
+    maxWidth: "400px",
+    borderRadius: "20px",
+    marginBottom: "20px"
+  }}
+/>
+
+<img
+  src="/foto2.jpg"
+  alt="Foto 2"
+  style={{
+    width: "100%",
+    maxWidth: "400px",
+    borderRadius: "20px",
+    marginBottom: "20px"
+  }}
+/>
+
+<img
+  src="/foto3.jpg"
+  alt="Foto 3"
+  style={{
+    width: "100%",
+    maxWidth: "400px",
+    borderRadius: "20px"
+  }}
+/>
         style={{
           width: "100%",
           maxWidth: "300px",
