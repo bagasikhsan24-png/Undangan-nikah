@@ -127,7 +127,7 @@ function App() {
       <h2>📸 Galeri Prewedding</h2>
 
 <img
-  src="/foto1.jpg"
+  src="/solikhin-vera-1.jpg"
   alt="Foto 1"
   style={{
     width: "100%",
@@ -138,7 +138,7 @@ function App() {
 />
 
 <img
-  src="/foto2.jpg"
+  src="/solikhin-vera-2.jpg"
   alt="Foto 2"
   style={{
     width: "100%",
@@ -149,7 +149,7 @@ function App() {
 />
 
 <img
-  src="/foto3.jpg"
+  src="/solikhin-vera-3.jpg"
   alt="Foto 3"
   style={{
     width: "100%",
